@@ -339,3 +339,23 @@ void report(float distance[][MAX_CITIES], int deliverySource[], int deliveryDest
     printf("================================\n");
 }
 
+int main()
+{
+    int choice;
+    do
+    {
+        printf("\n------ LOGISTICS MANAGEMENT MENU ------\n");
+        printf("1. Add City\n");
+        printf("2. Manage Cities\n");
+        printf("3. Edit Distance\n");
+        printf("4. Display Distance Table\n");
+        printf("5. Calculate Delivery\n");
+        printf("6. Least Distance Route\n");
+        printf("7. Show Report\n");
+        printf("8. Rename City\n");
+        printf("9. Remove City\n");
+        printf("0. Exit\n");
+        printf("----------------------------------------\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
