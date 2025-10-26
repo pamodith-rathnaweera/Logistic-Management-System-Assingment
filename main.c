@@ -159,25 +159,7 @@ void displayDistanceTable(char cities[][30],float distance[][MAX_CITIES], int ci
     }
 }
 
-void displayDistanceTable(char cities[][30],float distance[][MAX_CITIES], int cityCount)
-{
-    if (cityCount == 0)
-    {
-        printf("No cities available.\n");
-        return;
-    }
-    printf("\nDistance Table (km):\n\t");
-    for (int i = 0; i < cityCount; i++)
-        printf("%s\t", cities[i]);
-    printf("\n");
-    for (int i = 0; i < cityCount; i++)
-    {
-        printf("%s\t", cities[i]);
-        for (int j = 0; j < cityCount; j++)
-            printf("%.2f\t", distance[i][j]);
-        printf("\n");
-    }
-}
+
 
 void calculateDelivery(char cities[][30], float distance[][MAX_CITIES], int *deliveryCount, int cityCount)
 {
@@ -358,4 +340,49 @@ int main()
         printf("----------------------------------------\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            addCity(cities,&cityCount);
+            break;
+        case 2:
+            manageCities(cities,cityCount);
+            break;
+        case 3:
+            editDistance(cities, distance, cityCount);
+            break;
+        case 4:
+            displayDistanceTable(cities,distance, cityCount);
+            break;
+
+        case 5:
+            calculateDelivery(cities, distance, &deliveryCount, cityCount);
+            break;
+        case 6:
+            leastDistanceRoute(cities, distance, cityCount);
+            break;
+        case 7:
+            report(distance, deliverySource, deliveryDestination, chargeList, profitList, timeList, deliveryCount);
+            break;
+        case 8:
+            renameCity(cities,cityCount);
+            break;
+        case 9:
+            removeCity(cities, distance, &cityCount);
+            break;
+        case 0:
+            printf("Exiting program...\n");
+            break;
+        default:
+            printf("Invalid choice! Try again.\n");
+        }
+    }
+    while (choice != 0);
+
+    return 0;
+}
+
+
+
 
