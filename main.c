@@ -50,3 +50,15 @@ void addCity(char cities[][30],int *cityCount)
     (*cityCount)++;
     printf("City added successfully!\n");
 }
+
+void manageCities(char cities[][30], int cityCount)
+{
+    printf("\nCities:\n");
+    if (cityCount == 0)
+    {
+        printf("No cities added yet.\n");
+        return;
+    }
+    for (int i = 0; i < cityCount; i++)
+        printf("%d. %s\n", i, cities[i]);
+}
