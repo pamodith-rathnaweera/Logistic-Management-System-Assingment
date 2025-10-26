@@ -201,4 +201,33 @@ void calculateDelivery(char cities[][30], float distance[][MAX_CITIES], int *del
     printf("Vehicle (1=Van, 2=Truck, 3=Lorry): ");
     scanf("%d", &vehicleType);
     vehicleType--;
+  if (src == dest)
+    {
+        printf("Error: Same cities!\n");
+
+    }
+    if (vehicleType < 0 || vehicleType > 2)
+    {
+        printf("Invalid vehicle type!\n");
+
+    }
+    if (weight > capacity[vehicleType])
+    {
+        printf("Error: Exceeds capacity!\n");
+
+    }
+
+    float D = distance[src][dest];
+    float R = ratePerKm[vehicleType];
+    float S = avgSpeed[vehicleType];
+    float E = fuelEfficiency[vehicleType];
+
+
+    float cost = D * R * (1 + weight / 10000.0);
+    float fuelUsed = D / E;
+    float fuelCost = fuelUsed * FUEL_PRICE;
+    float totalCost = cost + fuelCost;
+    float profit = cost * 0.25;
+    float customerCharge = totalCost + profit;
+    float time = D / S;
 
