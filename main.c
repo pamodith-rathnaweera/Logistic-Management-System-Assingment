@@ -159,3 +159,46 @@ void displayDistanceTable(char cities[][30],float distance[][MAX_CITIES], int ci
     }
 }
 
+void displayDistanceTable(char cities[][30],float distance[][MAX_CITIES], int cityCount)
+{
+    if (cityCount == 0)
+    {
+        printf("No cities available.\n");
+        return;
+    }
+    printf("\nDistance Table (km):\n\t");
+    for (int i = 0; i < cityCount; i++)
+        printf("%s\t", cities[i]);
+    printf("\n");
+    for (int i = 0; i < cityCount; i++)
+    {
+        printf("%s\t", cities[i]);
+        for (int j = 0; j < cityCount; j++)
+            printf("%.2f\t", distance[i][j]);
+        printf("\n");
+    }
+}
+
+void calculateDelivery(char cities[][30], float distance[][MAX_CITIES], int *deliveryCount, int cityCount)
+{
+    if (*deliveryCount >= MAX_DELIVERIES)
+
+        if (cityCount < 2)
+        {
+            printf("Add at least two cities first!\n");
+
+        }
+
+
+    int src, dest, vehicleType;
+    float weight;
+    printf("Enter source city index: ");
+    scanf("%d", &src);
+    printf("Enter destination city index: ");
+    scanf("%d", &dest);
+    printf("Enter weight (kg): ");
+    scanf("%f", &weight);
+    printf("Vehicle (1=Van, 2=Truck, 3=Lorry): ");
+    scanf("%d", &vehicleType);
+    vehicleType--;
+
